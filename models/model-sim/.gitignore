@@ -1,0 +1,4 @@
+events.out.*
+model.ckpt*
+graph.pbtxt
+checkpoint

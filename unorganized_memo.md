@@ -85,3 +85,73 @@ conda install numpy
 conda install pyqt=4
 
 python sloth/bin/sloth examples/example1_labels.json
+
+
+
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+
+
+Windows 10
+Windows キー + X
+A キー
+Alt + Y
+Windows キーと X キーを入力するとメニューが表示される。その一覧にコマンドプロンプトを管理者で実行する項目があるので A キーを入力することで起動できる。ユーザーアカウント制御のウィンドウが表示されるので Alt + Y で「はい(Y)」を選択する。そうすると管理者権限でコマンドプロンプトが起動される。
+
+Windows 10 Creators Update
+Windows キー
+検索ボックスに cmd と入力
+Ctrl + Shift + Enter
+Alt + Y
+Windows キーを押下するとスタートメニューが開く。そのまま cmd と入力すると、検索ボックスでコマンドプロンプトのプログラム (cmd.exe) が検索されて選択される。コマンドプロンプトのプログラム (cmd.exe) を選択している状態で Ctrl + Shift + Enter で開くと管理者権限で実行できる。ユーザーアカウント制御のウィンドウが表示されるので Alt + Y で「はい(Y)」を選択する。そうすると管理者権限でコマンドプロンプトが起動される。
+
+※ Creators Update 以降の Windows 10 だと、以前の方法では PowerShell が起動してしまう。（コメントしていただいた @ktanakaj さんありがとうございます。）
+
+PS C:\Windows\system32> cmd
+Microsoft Windows [Version 10.0.16299.547]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin
+Getting latest version of the Chocolatey package for download.
+Getting Chocolatey from https://chocolatey.org/api/v2/package/chocolatey/0.10.11.
+Extracting C:\Users\yoshi\AppData\Local\Temp\chocolatey\chocInstall\chocolatey.zip to C:\Users\yoshi\AppData\Local\Temp\chocolatey\chocInstall...
+Installing chocolatey on this machine
+Creating ChocolateyInstall as an environment variable (targeting 'Machine')
+  Setting ChocolateyInstall to 'C:\ProgramData\chocolatey'
+WARNING: It's very likely you will need to close and reopen your shell
+  before you can use choco.
+Restricting write permissions to Administrators
+We are setting up the Chocolatey package repository.
+The packages themselves go to 'C:\ProgramData\chocolatey\lib'
+  (i.e. C:\ProgramData\chocolatey\lib\yourPackageName).
+A shim file for the command line goes to 'C:\ProgramData\chocolatey\bin'
+  and points to an executable in 'C:\ProgramData\chocolatey\lib\yourPackageName'.
+
+Creating Chocolatey folders if they do not already exist.
+
+WARNING: You can safely ignore errors related to missing log files when
+  upgrading from a version of Chocolatey less than 0.9.9.
+  'Batch file could not be found' is also safe to ignore.
+  'The system cannot find the file specified' - also safe.
+chocolatey.nupkg file not installed in lib.
+ Attempting to locate it from bootstrapper.
+PATH environment variable does not have C:\ProgramData\chocolatey\bin in it. Adding...
+WARNING: Not setting tab completion: Profile file does not exist at
+'C:\Users\yoshi\OneDrive\ドキュメント\WindowsPowerShell\Microsoft.PowerShell_profile.ps1'.
+Chocolatey (choco.exe) is now ready.
+You can call choco from anywhere, command line or powershell by typing choco.
+Run choco /? for a list of functions.
+You may need to shut down and restart powershell and/or consoles
+ first prior to using choco.
+Ensuring chocolatey commands are on the path
+Ensuring chocolatey.nupkg is in the lib folder
+
+--
+
+conda create yq
+activate yq
+pip install yq
+
+(yq) C:\Users\yoshi>yq
+usage: yq.exe [-h] [--yaml-output] [--width WIDTH] [--version]
+              jq_filter [files [files ...]]
+yq.exe: error: the following arguments are required: jq_filter, files
